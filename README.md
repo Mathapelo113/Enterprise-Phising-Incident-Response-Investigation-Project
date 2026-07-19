@@ -121,7 +121,7 @@ The reported phishing email was reviewed to identify suspicious characteristics.
 ### Screenshot
 
 ```markdown
-![Initial Investigation](Screenshots/01-email-overview.png)
+![Initial Investigation](Screenshots/01-email.png)
 ```
 
 ---
@@ -149,7 +149,7 @@ The email headers were examined to determine the true origin of the message.
 ### Screenshot
 
 ```markdown
-![Header Analysis](Screenshots/02-header-analysis.png)
+![Header Analysis](Screenshots/02-email-analysis.png)
 ```
 
 ---
@@ -175,7 +175,7 @@ The embedded hyperlink was analyzed to determine whether it redirected users to 
 ### Screenshot
 
 ```markdown
-![URL Analysis](Screenshots/03-url-analysis.png)
+![URL Analysis](Screenshots/04-header-analysis-report.png)
 ```
 
 ---
@@ -200,7 +200,7 @@ The phishing URL and domain were submitted to VirusTotal to determine their repu
 ### Screenshot
 
 ```markdown
-![VirusTotal Analysis](Screenshots/04-virustotal-analysis.png)
+![VirusTotal Analysis](Screenshots/06-virustotal-analysis.png)
 ```
 
 ---
@@ -226,7 +226,7 @@ A WHOIS lookup was performed to collect registration information for the phishin
 ### Screenshot
 
 ```markdown
-![WHOIS Analysis](Screenshots/05-whois-analysis.png)
+![WHOIS Analysis](Screenshots/07-whois-analysis.png)
 ```
 
 ---
@@ -246,7 +246,7 @@ Indicators of Compromise were extracted from the phishing email and supporting i
 ### Screenshot
 
 ```markdown
-![IOC Summary](Screenshots/06-ioc-summary.png)
+![IOC Summary](Screenshots/05-ioc-table.png)
 ```
 
 ---
@@ -264,7 +264,12 @@ The attack was mapped to the MITRE ATT&CK Framework.
 ### Screenshot
 
 ```markdown
-![MITRE Mapping](Screenshots/07-mitre-mapping.png)
+![MITRE Mapping](Screenshots/08-mitre-technique(spear phising link).png)
+![MITRE Mapping](Screenshots/08-mitre-technique(user execution).png)
+![MITRE Mapping](Screenshots/08-mitre-technique(phising).png)
+![MITRE Mapping](Screenshots/08-mitre-technique(valid account).png)
+
+
 ```
 
 ---
@@ -276,7 +281,7 @@ A chronological timeline was created documenting the incident from initial deliv
 ### Screenshot
 
 ```markdown
-![Incident Timeline](Screenshots/08-incident-timeline.png)
+![Incident Timeline](Screenshots/09-incident-timeline.png)
 ```
 
 ---
@@ -288,7 +293,7 @@ The phishing attack lifecycle was documented from delivery through attempted cre
 ### Screenshot
 
 ```markdown
-![Attack Chain](Screenshots/09-attack-chain.png)
+![Attack Chain](Screenshots/10-attack-chain.png)
 ```
 
 ---
@@ -308,7 +313,10 @@ Immediate containment actions were implemented to prevent additional users from 
 ### Screenshot
 
 ```markdown
-![Containment](Screenshots/10-containment-report.png)
+![Containment](Screenshots/10-containment-report(01).png)
+![Containment](Screenshots/10-containment-report(02).png)
+![Containment](Screenshots/10-containment-report(03).png)
+
 ```
 
 ---
@@ -327,7 +335,7 @@ Verified that no persistence mechanisms or compromise remained in the environmen
 ### Screenshot
 
 ```markdown
-![Eradication](Screenshots/11-eradication-report.png)
+![Eradication](Screenshots/12-eradication-report.png)
 ```
 
 ---
@@ -345,7 +353,7 @@ Business operations returned to normal following verification of account securit
 ### Screenshot
 
 ```markdown
-![Recovery](Screenshots/12-recovery-report.png)
+![Recovery](Screenshots/13-recovery-report.png)
 ```
 
 ---
@@ -365,7 +373,7 @@ Recommendations were documented to improve organizational resilience against fut
 ### Screenshot
 
 ```markdown
-![Lessons Learned](Screenshots/13-lessons-learned.png)
+![Lessons Learned](Screenshots/14-lessons-learned.png)
 ```
 
 ---
@@ -377,7 +385,8 @@ A management-level report summarizing the investigation, findings, business impa
 ### Screenshot
 
 ```markdown
-![Executive Summary](Screenshots/14-executive-summary.png)
+![Executive Summary](Screenshots/15-executive-summary(01).png)
+![Executive Summary](Screenshots/15-executive-summary(02).png)
 ```
 
 ---
