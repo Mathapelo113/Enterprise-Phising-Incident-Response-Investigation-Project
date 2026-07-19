@@ -2,312 +2,485 @@
 
 ## Project Overview
 
-This project simulates an enterprise phishing incident investigated by a Security Operations Center (SOC) analyst.
+This project demonstrates a complete enterprise phishing incident investigation simulating how a Security Operations Center (SOC) analyst investigates and responds to a credential phishing attack targeting a Microsoft 365 user.
 
-The investigation follows the complete incident response lifecycle, from the initial phishing email report through evidence collection, IOC extraction, MITRE ATT&CK mapping, containment, eradication, recovery, and lessons learned.
+The investigation follows the NIST Incident Response Lifecycle and includes email analysis, URL investigation, threat intelligence lookups, IOC identification, MITRE ATT&CK mapping, incident response activities, and executive reporting.
 
-The project demonstrates practical SOC analyst skills using free industry-standard tools and follows a structured investigation methodology suitable for entry-level cybersecurity roles.
+The objective of this project is to demonstrate practical phishing investigation and incident response skills using industry-standard methodologies and freely available tools.
 
 ---
 
 # Business Scenario
 
-SecureTech Solutions received a report from a Finance department employee regarding a suspicious email claiming that their Microsoft 365 password would expire within 24 hours.
+An employee in the Finance department received an email claiming to be from Microsoft 365 Security.
 
-The employee clicked the embedded verification link but became suspicious before entering any credentials and immediately notified the Security Operations Center.
+The email instructed the user to verify their Microsoft 365 account by clicking a hyperlink that redirected them to a fraudulent login page designed to steal credentials.
 
-The SOC initiated an investigation to determine:
+The employee clicked the link but recognized suspicious activity before entering any credentials and immediately reported the incident to the Security Operations Center (SOC).
+
+The SOC initiated a full investigation to determine:
 
 - Whether the email was malicious
-- Whether credentials were compromised
-- What indicators of compromise were present
-- What containment actions were required
+- Whether credentials had been compromised
+- Whether malware had been executed
+- The Indicators of Compromise (IOCs)
+- Appropriate containment and recovery actions
+
+The investigation confirmed a credential phishing attempt with no evidence of account compromise or malware execution.
 
 ---
 
-# Project Objectives
+# Investigation Objectives
 
-- Investigate a phishing email
-- Analyze email headers
-- Identify phishing indicators
-- Extract Indicators of Compromise (IOCs)
-- Perform threat intelligence analysis
-- Map attacker behavior using MITRE ATT&CK
-- Build an incident timeline
+- Analyze a phishing email
+- Perform email header analysis
+- Investigate the phishing URL
+- Analyze the URL using VirusTotal
+- Perform WHOIS domain analysis
+- Identify Indicators of Compromise (IOCs)
+- Map attacker behavior to the MITRE ATT&CK Framework
+- Document the complete investigation
 - Recommend containment, eradication, and recovery actions
-- Produce professional incident documentation
+
+---
+
+# NIST Incident Response Lifecycle
+
+- **Preparation**
+- **Detection & Analysis**
+- **Containment**
+- **Eradication**
+- **Recovery**
+- **Lessons Learned**
 
 ---
 
 # Investigation Workflow
 
-1. Initial Incident Report
-2. Email Analysis
-3. Header Analysis
-4. IOC Extraction
-5. Threat Intelligence Analysis
-6. MITRE ATT&CK Mapping
-7. Timeline Reconstruction
-8. Containment
-9. Eradication
-10. Recovery
-11. Lessons Learned
+```text
+Phishing Email Received
+        │
+        ▼
+Initial Investigation
+        │
+        ▼
+Email Header Analysis
+        │
+        ▼
+URL Analysis
+        │
+        ▼
+VirusTotal Analysis
+        │
+        ▼
+WHOIS Analysis
+        │
+        ▼
+IOC Identification
+        │
+        ▼
+MITRE ATT&CK Mapping
+        │
+        ▼
+Incident Timeline
+        │
+        ▼
+Attack Chain
+        │
+        ▼
+Containment
+        │
+        ▼
+Eradication
+        │
+        ▼
+Recovery
+        │
+        ▼
+Lessons Learned
+        │
+        ▼
+Executive Summary
+```
 
 ---
 
-# Investigation Methodology
+# Investigation Phases
 
-The investigation followed the NIST Incident Response Lifecycle:
+## Phase 1 – Initial Investigation
 
-- Preparation
-- Detection & Analysis
-- Containment
-- Eradication
-- Recovery
-- Lessons Learned
+The reported phishing email was reviewed to identify suspicious characteristics.
+
+### Activities
+
+- Reviewed sender information
+- Examined subject line
+- Identified social engineering tactics
+- Opened an incident investigation
+
+### Screenshot
+
+```markdown
+![Initial Investigation](Screenshots/01-email-overview.png)
+```
+
+---
+
+## Phase 2 – Email Header Analysis
+
+The email headers were examined to determine the true origin of the message.
+
+### Analysis Performed
+
+- Return-Path
+- Reply-To Address
+- SPF Validation
+- DKIM Validation
+- Received Headers
+- Message-ID
+- Sender Domain
+
+### Findings
+
+- Suspicious sender infrastructure
+- Spoofed Microsoft branding
+- Suspicious originating domain
+
+### Screenshot
+
+```markdown
+![Header Analysis](Screenshots/02-header-analysis.png)
+```
+
+---
+
+## Phase 3 – URL Analysis
+
+The embedded hyperlink was analyzed to determine whether it redirected users to a malicious website.
+
+### Analysis Performed
+
+- Examined URL structure
+- Checked HTTPS usage
+- Reviewed subdomains
+- Identified typosquatting techniques
+- Compared against legitimate Microsoft domains
+
+### Findings
+
+- Fake Microsoft login page
+- Credential harvesting attempt
+- Malicious destination
+
+### Screenshot
+
+```markdown
+![URL Analysis](Screenshots/03-url-analysis.png)
+```
+
+---
+
+## Phase 4 – VirusTotal Analysis
+
+The phishing URL and domain were submitted to VirusTotal to determine their reputation across multiple security vendors.
+
+### Analysis Performed
+
+- URL reputation lookup
+- Domain reputation lookup
+- Security vendor detections
+- Community intelligence review
+
+### Findings
+
+- Multiple detections
+- URL classified as malicious
+- Domain associated with phishing
+
+### Screenshot
+
+```markdown
+![VirusTotal Analysis](Screenshots/04-virustotal-analysis.png)
+```
+
+---
+
+## Phase 5 – WHOIS Analysis
+
+A WHOIS lookup was performed to collect registration information for the phishing domain.
+
+### Analysis Performed
+
+- Domain registrar
+- Registration date
+- Expiration date
+- Domain age
+- Name servers
+
+### Findings
+
+- Newly registered domain
+- Short registration period
+- Characteristics commonly associated with phishing infrastructure
+
+### Screenshot
+
+```markdown
+![WHOIS Analysis](Screenshots/05-whois-analysis.png)
+```
+
+---
+
+## Phase 6 – Indicator of Compromise (IOC) Identification
+
+Indicators of Compromise were extracted from the phishing email and supporting investigation.
+
+### Indicators
+
+- Malicious sender address
+- Malicious domain
+- Phishing URL
+- Email subject
+- Associated infrastructure
+
+### Screenshot
+
+```markdown
+![IOC Summary](Screenshots/06-ioc-summary.png)
+```
+
+---
+
+## Phase 7 – MITRE ATT&CK Mapping
+
+The attack was mapped to the MITRE ATT&CK Framework.
+
+| Technique ID | Technique |
+|--------------|-----------|
+| T1566.002 | Spearphishing Link |
+| T1583 | Acquire Infrastructure |
+| T1078 | Valid Accounts (Potential Objective) |
+
+### Screenshot
+
+```markdown
+![MITRE Mapping](Screenshots/07-mitre-mapping.png)
+```
+
+---
+
+## Phase 8 – Incident Timeline
+
+A chronological timeline was created documenting the incident from initial delivery through containment.
+
+### Screenshot
+
+```markdown
+![Incident Timeline](Screenshots/08-incident-timeline.png)
+```
+
+---
+
+## Phase 9 – Attack Chain
+
+The phishing attack lifecycle was documented from delivery through attempted credential theft.
+
+### Screenshot
+
+```markdown
+![Attack Chain](Screenshots/09-attack-chain.png)
+```
+
+---
+
+## Phase 10 – Containment
+
+Immediate containment actions were implemented to prevent additional users from interacting with the phishing campaign.
+
+### Actions
+
+- Quarantined phishing email
+- Blocked sender
+- Blocked malicious domain
+- Blocked phishing URL
+- Notified employees
+
+### Screenshot
+
+```markdown
+![Containment](Screenshots/10-containment-report.png)
+```
+
+---
+
+## Phase 11 – Eradication
+
+Verified that no persistence mechanisms or compromise remained in the environment.
+
+### Actions
+
+- Verified Microsoft 365 account integrity
+- Confirmed no unauthorized logins
+- Removed phishing email
+- Updated email filtering rules
+
+### Screenshot
+
+```markdown
+![Eradication](Screenshots/11-eradication-report.png)
+```
+
+---
+
+## Phase 12 – Recovery
+
+Business operations returned to normal following verification of account security.
+
+### Recovery Actions
+
+- Continued monitoring
+- Confirmed account security
+- Validated business continuity
+
+### Screenshot
+
+```markdown
+![Recovery](Screenshots/12-recovery-report.png)
+```
+
+---
+
+## Phase 13 – Lessons Learned
+
+Recommendations were documented to improve organizational resilience against future phishing attacks.
+
+### Recommendations
+
+- Strengthen phishing awareness training
+- Enforce Multi-Factor Authentication
+- Improve email filtering
+- Monitor typosquatted domains
+- Conduct regular phishing simulations
+
+### Screenshot
+
+```markdown
+![Lessons Learned](Screenshots/13-lessons-learned.png)
+```
+
+---
+
+## Phase 14 – Executive Summary
+
+A management-level report summarizing the investigation, findings, business impact, and final incident classification.
+
+### Screenshot
+
+```markdown
+![Executive Summary](Screenshots/14-executive-summary.png)
+```
+
+---
+
+# Indicators of Compromise (IOCs)
+
+| Type | Indicator |
+|------|-----------|
+| Sender | security@micr0soft-support.com |
+| Domain | micr0soft-support.com |
+| URL | https://login-microsoft365-secure.example/verify |
+| Attack Type | Credential Phishing |
 
 ---
 
 # Tools Used
 
 | Tool | Purpose |
-|--------|----------|
+|------|---------|
 | Thunderbird | Email Analysis |
-| Visual Studio Code | Documentation |
-| MITRE ATT&CK | Adversary Mapping |
-| diagrams.net | Timeline Creation |
-| GitHub | Documentation & Version Control |
-| VirusTotal | Threat Intelligence Methodology (Simulation) |
-| URLScan | URL Investigation Methodology (Simulation) |
-| WHOIS | Domain Investigation Methodology (Simulation) |
-
----
-
-# Investigation Phases
-
-## Phase 1 – Initial Email Analysis
-
-The suspicious email was opened using Thunderbird.
-
-The following characteristics were identified:
-
-- Urgent language
-- Credential verification request
-- Typosquatted Microsoft domain
-- External login page
-
-### Screenshot
-
-![Original Email](Screenshots/01-email.png)
-
----
-
-## Phase 2 – Email Header Analysis
-
-Email headers were analyzed to validate sender authenticity.
-
-Findings included:
-
-- SPF Failure
-- Missing DKIM
-- DMARC Failure
-- Suspicious Return-Path
-- Typosquatted sender domain
-
-### Screenshot
-
-![Email Header](Screenshots/03-email-header.png)
-
-
----
-
-## Phase 3 – IOC Extraction
-
-Indicators extracted included:
-
-- Sender Email
-- Sender Domain
-- URL
-- IP Address
-
-### Screenshot
-
-![IOC Table](Screenshots/05-ioc-table.png)
-
----
-
-## Phase 4 – MITRE ATT&CK Mapping
-
-Mapped techniques included:
-
-- T1566.002 — Spearphishing Link
-- T1204 — User Execution
-- T1078 — Valid Accounts
-- T1583.001 — Acquire Infrastructure: Domains
-
-### Screenshot
-
-`Screenshots/08-mitre-techniq
-
----
-
-## Phase 5 – Incident Timeline
-
-A timeline was created documenting each stage of the investigation.
-
-### Screenshot
-
-`Screenshots/09-incident-timeline.png`
-
----
-
-## Phase 6 – Containment
-
-Actions included:
-
-- Quarantining the phishing email
-- Blocking sender domain
-- Blocking phishing URL
-- Employee notification
-
-### Screenshot
-
-`Screenshots/11-containment-report.png`
-
----
-
-## Phase 7 – Eradication
-
-Investigation confirmed:
-
-- No malware execution
-- No persistence
-- No credential compromise
-
-### Screenshot
-
-`Screenshots/12-eradication-report.png`
-
----
-
-## Phase 8 – Recovery
-
-Business operations resumed without disruption.
-
-### Screenshot
-
-`Screenshots/13-recovery-report.png`
-
----
-
-# Indicators of Compromise
-
-| Type | Indicator |
-|---------|-----------------------------|
-| Email | security@micr0soft-support.com |
-| Domain | micr0soft-support.com |
-| Domain | login-microsoft365-secure.example |
-| URL | https://login-microsoft365-secure.example/verify |
-| IP Address | 185.243.115.77 |
-
----
-
-# MITRE ATT&CK Mapping
-
-| Technique | Description |
-|------------|----------------------------|
-| T1566.002 | Spearphishing Link |
-| T1204 | User Execution |
-| T1078 | Valid Accounts |
-| T1583.001 | Acquire Infrastructure: Domains |
-
----
-
-# Investigation Outcome
-
-The investigation determined that the email was a credential phishing attempt designed to impersonate Microsoft 365.
-
-The employee interacted with the phishing link but did not submit credentials.
-
-No evidence of compromise or malware execution was identified.
-
-The incident was successfully contained.
+| MXToolbox | Email Header Analysis |
+| VirusTotal | Threat Intelligence |
+| WHOIS Lookup | Domain Registration Analysis |
+| URLScan.io | URL Investigation |
+| AbuseIPDB | IP Reputation |
+| CyberChef | Data Analysis |
+| GitHub | Documentation |
+| Visual Studio Code | Markdown Editing |
 
 ---
 
 # Skills Demonstrated
 
+- Phishing Email Investigation
+- Email Header Analysis
+- URL Analysis
+- Threat Intelligence Analysis
+- VirusTotal Investigation
+- WHOIS Domain Analysis
+- IOC Identification
+- MITRE ATT&CK Mapping
 - Incident Response
-- Email Analysis
-- Header Analysis
-- IOC Extraction
-- Threat Intelligence
-- MITRE ATT&CK
-- Documentation
 - Security Reporting
-- SOC Investigation
-- Phishing Analysis
-- Technical Writing
+- Technical Documentation
+- Threat Analysis
+- SOC Investigation Workflow
 
 ---
 
 # Repository Structure
 
-```
-
+```text
 Enterprise-Phishing-Incident-Response/
-
+│
 ├── Evidence/
-
 ├── Indicators/
-
 ├── Reports/
-
+│   ├── Executive_Summary.md
+│   ├── Initial_Findings.md
+│   ├── Phishing_Indicators.md
+│   ├── Header_Analysis.md
+│   ├── Investigation_Notes.md
+│   ├── MITRE_Mapping.md
+│   ├── Incident_Timeline.md
+│   ├── Attack_Chain.md
+│   ├── IOC_Summary.md
+│   ├── Containment.md
+│   ├── Eradication.md
+│   ├── Recovery.md
+│   └── Lessons_Learned.md
+│
 ├── Screenshots/
-
-├── Diagrams/
-
+│
 └── README.md
-
 ```
 
 ---
 
-# Lessons Learned
+# Key Findings
 
-- Phishing attacks continue to rely on social engineering and urgency.
-- Typosquatted domains remain an effective impersonation technique.
-- Prompt reporting significantly reduces organizational risk.
-- Security awareness training is essential for preventing credential theft.
+- Successfully identified a credential phishing attempt.
+- Confirmed the sender infrastructure was malicious.
+- Verified the phishing URL was designed to harvest Microsoft 365 credentials.
+- Threat intelligence confirmed the URL and domain were malicious.
+- WHOIS analysis revealed a recently registered domain commonly associated with phishing campaigns.
+- No credentials were submitted.
+- No malware was downloaded.
+- No unauthorized account access was detected.
+- The incident was successfully contained with minimal business impact.
 
 ---
 
 # Future Improvements
 
-Future enhancements to this project include:
-
-- Microsoft Sentinel alert investigation
-- Microsoft Defender XDR integration
-- Email gateway analysis
-- Splunk detection engineering
-- Sigma detection rule creation
-- Automated IOC enrichment
-- Threat intelligence platform integration
+- Integrate Microsoft Defender for Office 365 investigations.
+- Perform Microsoft Sentinel SIEM correlation.
+- Create Kusto Query Language (KQL) threat hunting queries.
+- Automate IOC enrichment using APIs.
+- Develop Sigma detection rules for phishing activity.
+- Simulate additional phishing scenarios involving malware attachments.
 
 ---
 
-# References
+# Conclusion
 
-- MITRE ATT&CK Framework
-- NIST Computer Security Incident Handling Guide (SP 800-61)
-- VirusTotal (Methodology)
-- URLScan.io (Methodology)
-
----
-
-# Author
-
-Mathapelo Mlilo
-
-Aspiring SOC Analyst | IT Support Technician | Cybersecurity Enthusiast
-
+This project demonstrates an end-to-end phishing incident investigation aligned with industry-standard incident response practices. It showcases the ability to analyze phishing emails, investigate malicious URLs using threat intelligence platforms, perform WHOIS domain analysis, identify Indicators of Compromise, map attacker techniques to the MITRE ATT&CK Framework, and document findings in a professional format suitable for enterprise Security Operations Center (SOC) environments.
