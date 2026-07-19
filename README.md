@@ -98,7 +98,7 @@ The following characteristics were identified:
 
 ### Screenshot
 
-`Screenshots/01-email.png`
+![Original Email](Screenshots/01-email.png)
 
 ---
 
@@ -116,7 +116,8 @@ Findings included:
 
 ### Screenshot
 
-`Screenshots/03-email-header.png`
+![Email Header](Screenshots/03-email-header.png)
+
 
 ---
 
@@ -131,7 +132,7 @@ Indicators extracted included:
 
 ### Screenshot
 
-`Screenshots/05-ioc-table.png`
+![IOC Table](Screenshots/05-ioc-table.png)
 
 ---
 
@@ -146,7 +147,7 @@ Mapped techniques included:
 
 ### Screenshot
 
-`Screenshots/08-mitre-techniques.png`
+`Screenshots/08-mitre-techniq
 
 ---
 
