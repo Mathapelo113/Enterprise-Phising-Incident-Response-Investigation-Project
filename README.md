@@ -264,13 +264,13 @@ The attack was mapped to the MITRE ATT&CK Framework.
 ### Screenshot
 
 
-![MITRE Mapping](Screenshots/08-mitre-technique(spear phising link).png)
+![MITRE Spearphishing Link](Screenshots/08-mitre-spear-phishing-link.png)
 
-![MITRE Mapping](Screenshots/08-mitre-technique(user execution).png)
+![MITRE User Execution](Screenshots/08-mitre-user-execution.png)
 
-![MITRE Mapping](Screenshots/08-mitre-techniques(phising).png)
+![MITRE Phishing](Screenshots/08-mitre-phishing.png)
 
-![MITRE Mapping](Screenshots/08-mitre-techniques(valid accounts).png)
+![MITRE Valid Account](Screenshots/08-mitre-valid-account.png)
 
 
 
