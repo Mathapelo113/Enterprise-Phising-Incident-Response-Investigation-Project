@@ -316,9 +316,11 @@ Immediate containment actions were implemented to prevent additional users from 
 ### Screenshot
 
 
-![Containment](Screenshots/10-containment-report(01).png)
-![Containment](Screenshots/10-containment-report(02).png)
-![Containment](Screenshots/10-containment-report(03).png)
+![Containment Report 1](Screenshots/10-containment-report-01.png)
+
+![Containment Report 2](Screenshots/10-containment-report-02.png)
+
+![Containment Report 3](Screenshots/10-containment-report-03.png)
 
 
 
