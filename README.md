@@ -283,9 +283,9 @@ A chronological timeline was created documenting the incident from initial deliv
 
 ### Screenshot
 
-```markdown
+
 ![Incident Timeline](Screenshots/09-incident-timeline.png)
-```
+
 
 ---
 
@@ -295,9 +295,9 @@ The phishing attack lifecycle was documented from delivery through attempted cre
 
 ### Screenshot
 
-```markdown
+
 ![Attack Chain](Screenshots/10-attack-chain.png)
-```
+
 
 ---
 
